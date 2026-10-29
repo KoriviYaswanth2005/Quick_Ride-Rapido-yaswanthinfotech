@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rapido: a bike taxi booking website built with plain HTML, CSS and JavaScript.">
+    <link rel="icon" href="rapido.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <script>document.documentElement.classList.add('js');</script>
+    <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem('rc.theme'))||'dark';}catch(e){document.documentElement.dataset.theme='dark';}</script>
+    <link rel="stylesheet" href="style.css">
+    <title>Rapido | Bike Taxi</title>
+    <link rel="stylesheet" href="enhance.css">
+</head>
+
+<body data-page="home">
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <nav class="space" aria-hidden="true"></nav>
+
+    
+    <header class="navbar" id="header">
+        <a class="logo" href="#home" aria-label="Rapido home">
+            <img src="./images/logo.svg" alt="Rapido logo">
+        </a>
+
+        <nav class="navigationmenu" id="menu" aria-label="Main">
+            <a href="#home" data-link data-key="home" class="active">Home</a>
+            <a href="#about" data-link data-key="about">About</a>
+            <a href="booking.html" data-link data-key="book">Book a ride</a>
+            <a href="safety.html" data-link data-key="safety">Safety</a>
+            <a href="blog.html" data-link data-key="blog">Blog</a>
+            <a href="admin-login.html" data-link data-key="dashboard">Dashboard</a>
+            <a href="careers.html" data-link data-key="careers">Careers</a>
+            <a href="landing.html" data-link data-key="landing">Welcome</a>
+            <a href="contact.html" data-link data-key="contact">Contact</a>
+            <a href="#developer" data-link data-key="developer">Developer</a>
+            <a href="login.html" data-link data-key="login">Sign in</a>
+            <a class="btn btn2 nav-cta" href="#" data-open-download>Download<br>App</a>
+        </nav>
+
+        <div class="download">
+            <button class="theme-btn" id="themeToggle" type="button" aria-label="Switch to light theme" title="Light theme"><i class="fa-solid fa-moon moon"></i><i class="fa-solid fa-sun sun"></i></button>
+            <div class="bell-wrap">
+                <button class="bell" id="bellBtn" type="button" aria-label="Notifications" aria-expanded="false" aria-controls="notifPanel">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="badge" id="bellCount" hidden>0</span>
+                </button>
+                <section class="notif-panel" id="notifPanel" aria-label="Notifications" hidden>
+                    <header class="notif-head">
+                        <strong>Notifications</strong>
+                        <div class="notif-actions">
+                            <button type="button" id="markAllRead">Mark all read</button>
+                            <button type="button" id="clearAll">Clear</button>
+                        </div>
+                    </header>
+                    <ul class="notif-list" id="notifList"></ul>
+                    <p class="notif-empty" id="notifEmpty">You're all caught up.</p>
+                </section>
+            </div>
+            <button class="ham" id="menuToggle" type="button" aria-label="Open menu" aria-controls="menu" aria-expanded="false">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
+
+  
+        
+
+         
+        <section class="explore" id="home">
+            <div class="ticker" aria-hidden="true">
+                <div class="ticker-track">
+                    <span>Built for your everyday journey</span><i class="fa-solid fa-star"></i>
+                    <span>A smoother way to move</span><i class="fa-solid fa-star"></i>
+                    <span>Safety-minded ride experience</span><i class="fa-solid fa-star"></i>
+                    <span>See an estimate before you book</span><i class="fa-solid fa-star"></i>
+                    <span>Bike · Auto · Cab</span><i class="fa-solid fa-star"></i>
+                    <span>Built for your everyday journey</span><i class="fa-solid fa-star"></i>
+                    <span>A smoother way to move</span><i class="fa-solid fa-star"></i>
+                    <span>Safety-minded ride experience</span><i class="fa-solid fa-star"></i>
+                    <span>See an estimate before you book</span><i class="fa-solid fa-star"></i>
+                    <span>Bike · Auto · Cab</span><i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+
+            <div class="hero-lite">
+                <div class="hero-lite-text">
+                    <p class="eyebrow-line rise-in"><i class="fa-solid fa-wand-magic-sparkles"></i> YOUR CITY, YOUR WAY</p>
+                    <h2 class="hero-lite-title rise-in">
+                        <span class="line">Good rides.</span>
+                        <span class="line"><span class="hl-under">Good vibes.</span></span>
+                    </h2>
+                    <p class="hero-lite-lead rise-in">Skip the wait and move through your day with a ride that fits. Simple booking, clear estimates, and a smoother way to get there.</p>
+                    <div class="hero-lite-cta rise-in">
+                        <a class="btn btn1 magnetic" href="booking.html">Book your ride <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a class="btn btn-ghost" href="#benefits">See how it works <i class="fa-solid fa-circle-play"></i></a>
+                    </div>
+                    <div class="hero-lite-badges rise-in">
+                        <span><i class="fa-solid fa-circle-check"></i> Quick booking</span>
+                        <span><i class="fa-solid fa-shield-halved"></i> Safety first</span>
+                    </div>
+                </div>
+
+                <div class="hero-lite-art" aria-hidden="true">
+                    <div class="art-disc"></div>
+                    <div class="art-ring"></div>
+                    <svg class="scooter" viewBox="0 0 260 220" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="sc-bar" d="M104 40 L150 46" />
+                        <path class="sc-stem" d="M150 46 L176 152" />
+                        <path class="sc-deck" d="M176 152 L72 176" />
+                        <path d="M176 152 L206 170" />
+                        <circle class="sc-wheel" cx="50" cy="184" r="22" />
+                        <circle class="sc-wheel" cx="206" cy="170" r="22" />
+                    </svg>
+                    <div class="art-tag tag-a"><i class="fa-solid fa-bolt"></i><div><strong>Ready when you are</strong><small>Easy ride booking</small></div></div>
+                    <div class="art-tag tag-b"><i class="fa-solid fa-location-dot"></i><div><strong>Door to door</strong><small>Your route, your choice</small></div></div>
+                    <div class="art-tag tag-c"><i class="fa-regular fa-credit-card"></i><div><strong>Upfront estimate</strong><small>Clear upfront estimates</small></div></div>
+                </div>
+            </div>
+
+            <div class="explore-head reveal">
+                <p class="eyebrow-line"><i class="fa-regular fa-compass"></i> EXPLORE QUICKRIDE</p>
+                <div class="explore-title-row">
+                    <h2>Your city. <span class="hl-under">Your next move.</span></h2>
+                    <a class="btn btn-dark" href="booking.html">Explore all rides <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <p>Choose a ride that fits your day, discover popular destinations, and get moving in just a few steps.</p>
+            </div>
+
+            <div class="explore-grid">
+                <article class="ride-card reveal" style="--i:0">
+                    <span class="ride-icon"><i class="fa-solid fa-motorcycle"></i></span>
+                    <p class="kicker">FOR QUICK TRIPS</p>
+                    <h3>Bike rides</h3>
+                    <p>Zip through traffic and make the most of every minute.</p>
+                    <button class="ride-link" type="button" data-ride="bike">Book a bike <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+                </article>
+                <article class="ride-card reveal" style="--i:1">
+                    <span class="ride-icon"><i class="fa-solid fa-taxi"></i></span>
+                    <p class="kicker">FOR EVERYDAY PLANS</p>
+                    <h3>Auto rides</h3>
+                    <p>A comfortable choice for your daily city journey.</p>
+                    <button class="ride-link" type="button" data-ride="auto">Find an auto <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+                </article>
+                <article class="ride-card reveal" style="--i:2">
+                    <span class="ride-icon"><i class="fa-solid fa-car"></i></span>
+                    <p class="kicker">ROOM FOR YOUR PLANS</p>
+                    <h3>Cab rides</h3>
+                    <p>Extra space for airport runs, errands, and meet-ups.</p>
+                    <button class="ride-link" type="button" data-ride="cab">Book a cab <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+                </article>
+            </div>
+
+            <a class="plan-route reveal" href="booking.html" data-focus="pickup" style="padding-left: 15px;padding-right: 15px;margin-top: 20px;display: inline-flex;align-items: center;gap: 10px;border-radius: 6px;background-color: #f0f0f0;color: #111;font-weight: 600;text-decoration: none;margin-left:13%;">
+                <i class="fa-solid fa-location-dot"></i>
+                <span><strong>Going somewhere specific?</strong> Add your pickup and destination to see an estimate.</span>
+                <b>Plan your route <i class="fa-solid fa-arrow-right"></i></b>
+            </a>
+        </section>
+
+    
+
+        
+        <section class="steps" id="benefits">
+            <div class="steps-head reveal">
+                <p class="eyebrow-line">NO COMPLICATED STEPS</p>
+                <h2>From here to <span class="hl">there.</span></h2>
+                <p>Three simple steps, and you're on your way.</p>
+            </div>
+            <ol class="steps-grid">
+                <li class="step-card reveal" style="--i:0">
+                    <span class="step-no">01</span>
+                    <h3>Set your route</h3>
+                    <p>Tell us where you are and where you want to go. See a fare estimate before you confirm.</p>
+                    <button class="step-action" type="button" data-step="route">Enter route <i class="fa-solid fa-arrow-right"></i></button>
+                </li>
+                <li class="step-card reveal" style="--i:1">
+                    <span class="step-no">02</span>
+                    <h3>Choose your ride</h3>
+                    <p>Pick a bike, auto or cab. The fare updates as soon as you choose.</p>
+                    <div class="chip-row" role="group" aria-label="Choose a ride type">
+                        <button type="button" class="chip" data-ride="bike">Bike</button>
+                        <button type="button" class="chip" data-ride="auto">Auto</button>
+                        <button type="button" class="chip" data-ride="cab">Cab</button>
+                    </div>
+                </li>
+                <li class="step-card reveal" style="--i:2">
+                    <span class="step-no">03</span>
+                    <h3>Track your trip</h3>
+                    <p>Follow the ride status journey from captain matching through ride completion.</p>
+                    <button class="step-action" type="button" data-step="track">See the tracker <i class="fa-solid fa-arrow-right"></i></button>
+                </li>
+            </ol>
+        </section>
+
+            <section class="homepage" id="about">
+            <div class="text">
+                <h1>
+                    <span class="rise" style="--d:.05s">India’s largest bike</span>
+                    <span class="rise" style="--d:.2s">taxi service</span>
+                </h1>
+                <p class="rise" style="--d:.35s">Rapido is India’s first and fastest-growing bike taxi app with 25 million+ downloads. Operations now run in more than 100 cities.</p>
+                <div class="buttons rise" style="--d:.5s">
+                    <a class="btn btn1 magnetic" href="booking.html">Book a ride</a>
+                    <a class="btn btn2 magnetic" href="#captain">Sign up as driver</a>
+                </div>
+            </div>
+            <div class="image rise-img">
+                <img src="./images/homepageimg.webp" alt="Rider on a bike taxi">
+            </div>
+        </section>
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+        
+        <section class="section3" id="impact">
+            <div class="section3text reveal">
+                <h1>Our Impact</h1>
+                <div class="underline"><div class="under"></div></div>
+                <p>
+                    <span>Our presence in the country has changed the concept of intra-city travel</span>
+                    <span>and made last-mile connectivity affordable for all.</span>
+                </p>
+            </div>
+            <div class="section3pics">
+                <div class="item reveal" style="--i:0">
+                    <img src="./images/section31.webp" alt="">
+                    <h1><span data-count="25">25</span> M</h1>
+                    <p>Downloads</p>
+                </div>
+                <div class="item reveal" style="--i:1">
+                    <img src="./images/section32.webp" alt="">
+                    <h1><span data-count="100">100</span>+</h1>
+                    <p>Cities</p>
+                </div>
+                <div class="item reveal" style="--i:2">
+                    <img src="./images/section33.webp" alt="">
+                    <h1><span data-count="1">1</span>M+</h1>
+                    <p>Captains</p>
+                </div>
+                <div class="item reveal" style="--i:3">
+                    <img src="./images/section34.webp" alt="">
+                    <h1><span data-count="10">10</span>M+</h1>
+                    <p>Customers</p>
+                </div>
+            </div>
+        </section>
+
+        
+                <section class="difference" aria-labelledby="diffTitle" >
+            <div class="diff-card reveal" style="padding: 25px;">
+                <div class="diff-copy" style="padding: 25px;">
+                    <p class="eyebrow-line gold">THE QUICKRIDE DIFFERENCE</p>
+                    <h2 id="diffTitle">Less planning.<br>More living.</h2>
+                    <p>A clean, accessible booking flow designed to keep the important things simple, with transparent fare estimates and clear ride-status updates.</p>
+                    <a class="btn btn1 magnetic" href="booking.html">Find your ride <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="diff-grid">
+                    <button class="diff-tile" type="button" aria-expanded="false">
+                        <span class="diff-head"><i class="fa-solid fa-bolt"></i> Fast flow</span>
+                        <small>Fewer booking steps</small>
+                        <em>Three taps from route to confirmation.</em>
+                    </button>
+                    <button class="diff-tile" type="button" aria-expanded="false">
+                        <span class="diff-head"><i class="fa-regular fa-credit-card"></i> Fare clarity</span>
+                        <small>See an estimate first</small>
+                        <em>The fare is worked out from the real road distance before you book.</em>
+                    </button>
+                    <button class="diff-tile" type="button" aria-expanded="false">
+                        <span class="diff-head"><i class="fa-solid fa-shield-halved"></i> Safety minded</span>
+                        <small>Easy safety shortcuts</small>
+                        <em>Emergency contacts and the SOS button are one tap away on the Safety page.</em>
+                    </button>
+                    <button class="diff-tile" type="button" aria-expanded="false">
+                        <span class="diff-head"><i class="fa-solid fa-mobile-screen"></i> Mobile ready</span>
+                        <small>Responsive by design</small>
+                        <em>Every section adapts from phone to desktop.</em>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        
+               <section class="cta-band" aria-labelledby="ctaTitle">
+            <div class="cta-card reveal" style="padding: 55px;">
+                <div class="cta-copy" style="padding: 25px;margin-bottom: 25px;">
+                    <p class="eyebrow-line dark">YOUR NEXT RIDE IS A TAP AWAY</p>
+                    <h2 id="ctaTitle">A smoother ride<br>starts right here.</h2>
+                    <p>Explore the booking flow and customer dashboard. The phone panel is a visual preview of the ride-booking experience.</p>
+                    <div class="cta-buttons">
+                        <a class="btn btn-dark magnetic" href="booking.html">Book a ride <i class="fa-solid fa-arrow-right"></i></a>
+                        <a class="btn btn-white" href="dashboard.html">My dashboard</a>
+                    </div>
+                </div>
+                <form class="phone" id="phoneForm" novalidate><fieldset class="form-fieldset" style="margin-left: -10px;padding-right:25px;">
+                    <br><legend style="margin-bottom: -40px;margin-left: 43px;">Quick ride search</legend>
+                    <div class="phone-screen" style="padding: -50px;margin-left: -23px;margin-right: -2px">
+                        <p class="phone-brand">quickride.</p>
+                        <label class="phone-field"><span class="dot-green" aria-hidden="true"></span>
+                            <input type="text" id="phonePickup" placeholder="Pickup location" autocomplete="off" aria-label="Pickup location">
+                        </label>
+                        <label class="phone-field"><span class="dot-red" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+                            <input type="text" id="phoneDrop" placeholder="Destination" autocomplete="off" aria-label="Destination">
+                        </label>
+                        <div class="phone-map" aria-hidden="true"><span></span></div>
+                        <div class="phone-ride"><span>Bike ride</span><b id="phoneFare">Estimate on booking</b></div>
+                        <button class="phone-go" type="submit">Find a ride <i class="fa-solid fa-arrow-up-right"></i></button>
+                        <p class="phone-note" id="phoneNote" aria-live="polite"></p>
+                    </div>
+                </fieldset></form>
+            </div>
+        </section>
+
+        <section class="section5" id="reviews">
+            <div class="text5 reveal">
+                <h1>Straight from the<br>Customer's heart</h1>
+                <div class="underline"><div class="under"></div></div>
+            </div>
+
+            <div class="carousel reveal" id="carousel" tabindex="0" aria-roledescription="carousel" aria-label="Customer reviews">
+                <div class="track" id="reviewTrack"></div>
+            </div>
+            <div class="carousel-controls">
+                <button class="round-btn" type="button" id="prevRev" aria-label="Previous review"><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="dots" id="dots"></div>
+                <button class="round-btn" type="button" id="nextRev" aria-label="Next review"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <form class="review-form reveal" id="reviewForm" novalidate><fieldset class="form-fieldset"><legend>Share your experience</legend>
+                <h3>Share your experience</h3>
+                <div class="form-row">
+                    <label>Your name
+                        <input type="text" name="name" maxlength="40" required placeholder="Enter your full name">
+                    </label>
+                    <label>City
+                        <input type="text" name="city" maxlength="40" required placeholder="Enter your city">
+                    </label>
+                </div>
+                <label>Rating
+                    <select name="rating">
+                        <option value="5">5 - Excellent</option>
+                        <option value="4">4 - Good</option>
+                        <option value="3">3 - Okay</option>
+                        <option value="2">2 - Poor</option>
+                        <option value="1">1 - Bad</option>
+                    </select>
+                </label>
+                <label>Your review
+                    <textarea name="text" rows="3" maxlength="300" required placeholder="Enter text"></textarea>
+                </label>
+                <p class="form-error" id="reviewError" role="alert"></p>
+                <button class="btn btn1 wide magnetic" type="submit">Post review</button>
+            </fieldset></form>
+        </section>
+
+        
+        <section class="showcase-map" id="livemap" aria-labelledby="mapTitle">
+            <div class="sc-head reveal"><p class="eyebrow-line"><i class="fa-solid fa-location-crosshairs"></i> LIVE IN YOUR CITY</p><h2 id="mapTitle">Rides moving around you</h2></div>
+            <div class="city-chips reveal" role="group" aria-label="Choose a city">
+                <button type="button" class="chip active" data-city="Bengaluru">Bengaluru</button>
+                <button type="button" class="chip" data-city="Chennai">Chennai</button>
+                <button type="button" class="chip" data-city="Hyderabad">Hyderabad</button>
+                <button type="button" class="chip" data-city="Pune">Pune</button>
+            </div>
+            <div class="map-card reveal">
+                <svg class="city-map" viewBox="0 0 600 340" role="img" aria-label="Map of city roads with bikes moving along routes">
+                    <rect width="600" height="340" rx="22" fill="#15151a"/>
+                    <g stroke="#2a2a33" stroke-width="10" fill="none" stroke-linecap="round">
+                        <path d="M0 80 C150 60 260 120 600 70"/><path d="M0 230 C200 260 380 200 600 250"/>
+                        <path d="M120 0 C140 120 90 220 150 340"/><path d="M430 0 C410 110 470 230 440 340"/>
+                    </g>
+                    <g stroke="#3b3b47" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="2 14">
+                        <path d="M40 300 C180 240 260 170 330 150 S520 90 570 40"/>
+                    </g>
+                    <path class="map-route" d="M40 300 C180 240 260 170 330 150 S520 90 570 40" stroke="#f9c935" stroke-width="5" fill="none" stroke-linecap="round"/>
+                    <circle cx="40" cy="300" r="9" fill="#f9c935"/><circle cx="570" cy="40" r="9" fill="#fff"/>
+                    <g class="bike-dot" aria-hidden="true"><circle r="11" fill="#f9c935" class="pulse-ring"/><circle r="7" fill="#000"/>
+                        <animateMotion dur="7s" repeatCount="indefinite" path="M40 300 C180 240 260 170 330 150 S520 90 570 40"/></g>
+                    <g class="bike-dot" aria-hidden="true"><circle r="9" fill="#ffe27a"/>
+                        <animateMotion dur="11s" begin="-4s" repeatCount="indefinite" path="M0 230 C200 260 380 200 600 250"/></g>
+                    <g class="bike-dot" aria-hidden="true"><circle r="9" fill="#ffe27a"/>
+                        <animateMotion dur="9s" begin="-2s" repeatCount="indefinite" path="M120 0 C140 120 90 220 150 340"/></g>
+                    <g class="bike-dot" aria-hidden="true"><circle r="9" fill="#ffe27a"/>
+                        <animateMotion dur="13s" repeatCount="indefinite" path="M600 70 C260 120 150 60 0 80"/></g>
+                </svg>
+                <div class="map-label"><span class="live-dot"></span> <strong id="mapCityLabel">Bengaluru</strong> &middot; 24 riders nearby</div>
+            </div>
+        </section>
+
+        <section class="fare-compare" id="fares" aria-labelledby="fareTitle">
+            <div class="sc-head reveal"><p class="eyebrow-line"><i class="fa-solid fa-indian-rupee-sign"></i> COMPARE FARES</p><h2 id="fareTitle">Know the price before you ride</h2></div>
+            <div class="fare-card reveal">
+                <label class="fare-slider">Trip distance <output id="fcKmOut" for="fcKm">5 km</output>
+                    <input type="range" id="fcKm" min="1" max="30" value="5" step="1"></label>
+                <div class="fare-grid">
+                    <div class="fare-opt" data-type="bike"><i class="fa-solid fa-motorcycle"></i><strong>Bike</strong><span class="fare-price" data-fare="bike">₹70</span><div class="fare-bar"><span data-bar="bike"></span></div></div>
+                    <div class="fare-opt" data-type="auto"><i class="fa-solid fa-taxi"></i><strong>Auto</strong><span class="fare-price" data-fare="auto">₹75</span><div class="fare-bar"><span data-bar="auto"></span></div></div>
+                    <div class="fare-opt" data-type="cab"><i class="fa-solid fa-car-side"></i><strong>Cab</strong><span class="fare-price" data-fare="cab">₹120</span><div class="fare-bar"><span data-bar="cab"></span></div></div>
+                </div>
+                <p class="fare-note">Indicative fares. Final price is shown before you confirm.</p>
+            </div>
+        </section>
+
+        <section class="story" id="story" aria-labelledby="storyTitle">
+            <div class="story-inner">
+                <div class="story-sticky reveal"><p class="eyebrow-line"><i class="fa-solid fa-route"></i> HOW IT FLOWS</p><h2 id="storyTitle">From tap to destination</h2><div class="story-track"><span id="storyProgress"></span></div></div>
+                <ol class="story-steps">
+                    <li class="story-step"><span class="step-num">01</span><h3>Pick your spot</h3><p>Type a pickup and drop, or tap the map. Suggestions appear as you type.</p></li>
+                    <li class="story-step"><span class="step-num">02</span><h3>See the fare first</h3><p>Road distance and the price for bike, auto or cab, before you commit.</p></li>
+                    <li class="story-step"><span class="step-num">03</span><h3>Ride with confidence</h3><p>Track your captain live, share your trip and use SOS whenever you need it.</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="rider-stories" aria-labelledby="storiesTitle">
+            <div class="sc-head reveal"><p class="eyebrow-line"><i class="fa-solid fa-heart"></i> RIDER STORIES</p><h2 id="storiesTitle">Short trips. Good company.</h2></div>
+            <div class="rider-grid">
+                <article class="rider-card"><div class="rider-top"><span class="avatar av1">AR</span><div><strong>Anjali R.</strong><small>Daily commuter, Bengaluru</small></div></div><div class="stars" aria-label="5 stars">★★★★★</div><p>“Gets me to the metro in ten minutes. The fare is shown before I book, so no surprises.”</p></article>
+                <article class="rider-card"><div class="rider-top"><span class="avatar av2">VK</span><div><strong>Vikram K.</strong><small>Captain, Chennai</small></div></div><div class="stars" aria-label="5 stars">★★★★★</div><p>“The app shows my route clearly and payouts are easy to follow. Good for steady work.”</p></article>
+                <article class="rider-card"><div class="rider-top"><span class="avatar av3">SM</span><div><strong>Sana M.</strong><small>Student, Hyderabad</small></div></div><div class="stars" aria-label="4 stars">★★★★☆</div><p>“Safety shortcuts are right where I need them. Feels good to share my trip with family.”</p></article>
+                <article class="rider-card"><div class="rider-top"><span class="avatar av4">RP</span><div><strong>Rahul P.</strong><small>Weekend rider, Pune</small></div></div><div class="stars" aria-label="5 stars">★★★★★</div><p>“Quick booking and a clean screen. I use it for every short hop now.”</p></article>
+            </div>
+        </section>
+
+        <section class="captain" id="captain" aria-labelledby="captainTitle">
+            <h2 id="captainTitle" class="section-title reveal">Sign up as a captain</h2>
+            <div class="underline"><div class="under"></div></div>
+            <form class="captain-form reveal" id="captainForm" novalidate><fieldset class="form-fieldset"><legend>Captain registration</legend>
+                <label>Full name
+                    <input type="text" name="name" required placeholder="Enter your full name">
+                </label>
+                <label>Mobile number
+                    <input type="tel" name="phone" placeholder="10-digit number" required>
+                </label>
+                <label>Vehicle registration
+                    <input type="text" name="vehicle" placeholder="e.g. KA01AB1234" required>
+                </label>
+                <label>City
+                    <input type="text" name="city" required placeholder="Enter your city">
+                </label>
+                <p class="form-error" id="captainError" role="alert"></p>
+                <button class="btn btn1 wide magnetic" type="submit">Submit application</button>
+                <div class="form-ok" id="captainOk" hidden>
+                    <div class="check"><i class="fa-solid fa-check"></i></div>
+                    <p>Thanks! We'll contact you within 3 working days.</p>
+                </div>
+            </fieldset></form>
+        </section>
+
+
+        <section class="section6" id="business">
+            <div class="text6 reveal" style="margin-top: -10px;">
+                <h1>Rapido Business<br>Solutions</h1>
+                <div class="underline"><div class="under"></div></div>
+                <p>
+                    <span>Get onboard with Rapido B2B services to earn more while you deliver.</span>
+                    <span>Highly reliable deliveries and a strong customer base make us one of the</span>
+                    <span>fastest-growing networks in the country. Sign up as a partner for on-time service.</span>
+                </p>
+                <button class="btn btn1 magnetic business-btn" type="button" id="openBusiness" aria-haspopup="dialog">Request a business account</button>
+            </div>
+            <div class="diagram2" aria-hidden="true">
+                <div class="dia5 reveal"></div>
+                <div class="dia6parent"><div class="dia6 reveal"></div></div>
+                <div class="dia7parent"><div class="dia7 reveal"></div></div>
+                <div class="dia8 reveal"></div>
+            </div>
+        </section>
+
+        
+        <section class="contact" id="contact" aria-labelledby="contactTitle" style="margin-bottom: 25px;">
+            <h2 id="contactTitle" class="section-title reveal">Contact us</h2>
+            <div class="underline"><div class="under"></div></div>
+            <form class="contact-form reveal" id="contactForm" novalidate><fieldset class="form-fieldset"><legend>Send us a message</legend>
+                <div class="form-row">
+                    <label>Name
+                        <input type="text" name="name" required placeholder="Enter your full name">
+                    </label>
+                    <label>Email
+                        <input type="email" name="email" required placeholder="Enter your email address">
+                    </label>
+                </div>
+                <label>Message
+                    <textarea name="message" rows="4" maxlength="500" required placeholder="Write your message"></textarea>
+                </label>
+                <p class="form-error" id="contactError" role="alert"></p>
+                <button class="btn btn1 wide magnetic" type="submit">Send message</button>
+            </fieldset></form>
+        </section>
+    
+    <dialog class="modal" id="businessDialog" aria-labelledby="bizTitle">
+        <form method="dialog" class="modal-close-wrap">
+            <button class="modal-x" aria-label="Close">&times;</button>
+        </form>
+        <h3 id="bizTitle">Business account request</h3>
+        <form id="businessForm" novalidate><fieldset class="form-fieldset"><legend>Business account request</legend>
+            <label>Company name
+                <input type="text" name="company" required placeholder="Enter company name">
+            </label>
+            <div class="form-row">
+                <label>Contact email
+                    <input type="email" name="email" required placeholder="Enter your email address">
+                </label>
+                <label>Monthly rides (approx.)
+                    <input type="number" name="rides" min="1" value="100" required placeholder="Enter a number">
+                </label>
+            </div>
+            <p class="form-error" id="bizError" role="alert"></p>
+            <div class="modal-actions">
+                <button class="btn btn2" type="button" id="bizCancel">Cancel</button>
+                <button class="btn btn1" type="submit">Send request</button>
+            </div>
+        </fieldset></form>
+    </dialog>
+
+
+    <dialog class="modal download-modal" id="downloadDialog" aria-labelledby="dlTitle">
+        <form method="dialog" class="modal-close-wrap"><button class="modal-x" aria-label="Close">&times;</button></form>
+        <h3 id="dlTitle">Get the Rapido app</h3>
+        <p class="muted">Use this website to explore ride booking and account features. Mobile app access is not available here yet.</p>
+        <div class="store-row">
+            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.rapido.passenger" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-play"></i><span><small>Get it on</small>Google Play</span></a>
+            <a class="store-btn" href="https://apps.apple.com/in/app/rapido-bike-taxi-auto-cabs/id1198464606" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-apple"></i><span><small>Download on the</small>App Store</span></a>
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn1" type="button" id="dlBook">Book a ride on the web</button>
+        </div>
+    </dialog>
+
+    
+    <div class="toasts" id="toasts" role="region" aria-label="Alerts" aria-live="polite"></div>
+
+    <main>
+        
+<section class="dev-showcase" id="developer">
+  <div class="dev-card">
+
+    <div class="dev-avatar">
+      <img
+        src="images/developer.webp"
+        alt="Korivi Yaswanth"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="dev-content">
+      <span class="dev-label">✦ MEET THE DEVELOPER</span>
+
+      <h2>Korivi Yaswanth</h2>
+
+      <h3>Founder &amp; Developer — YaswanthInfotech</h3>
+
+      <p class="dev-training">
+        Python Full Stack Development Learner
+      </p>
+
+      <p class="dev-description">
+        I create modern, responsive and user-friendly digital
+        experiences with a passion for clean design, web development
+        and practical software solutions.
+      </p>
+
+      <div class="dev-actions">
+        <a href="mailto:yaswanthinfotech@gmail.com" class="dev-pill">
+          <i class="fa-solid fa-envelope"></i>
+          Email Me
+        </a>
+
+        <a href="https://wa.me/918125807927"
+           target="_blank" rel="noopener noreferrer"
+           class="dev-pill">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp
+        </a>
+
+        <a href="https://www.linkedin.com/in/korivi-yaswanth-55277a2b1/"
+           target="_blank" rel="noopener noreferrer"
+           class="dev-pill">
+          <i class="fa-brands fa-linkedin"></i>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="dev-socials">
+        <a href="https://www.instagram.com/yaswanthinfotech.in/"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram"></i> YaswanthInfotech
+        </a>
+
+    
+        <button type="button" id="devCopyEmail">
+          <i class="fa-regular fa-copy"></i> Copy Email
+        </button>
+      </div>
+    </div>
+
+    <div class="dev-decoration"></div>
+  </div>
+
+  <p class="dev-signature">
+    <i class="fa-solid fa-code"></i>
+    Turning ideas into digital experiences
+    <span>•</span> Built with passion
+  </p>
+</section>
+
+
+<section class="dev-project-banner">
+  <div class="dev-banner-content">
+    <span class="dev-banner-label">HAVE A PROJECT IDEA?</span>
+    <h3>Let's turn your idea into a powerful digital experience.</h3>
+    <p>Websites, e-commerce platforms and custom digital solutions.</p>
+  </div>
+
+  <div class="dev-banner-actions">
+    <a href="https://wa.me/918125807927?text=Hi%20Yaswanth%2C%20I%20have%20a%20project%20idea"
+       target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-whatsapp"></i> Contact Me
+    </a>
+
+    <a href="mailto:yaswanthinfotech@gmail.com">
+      <i class="fa-regular fa-envelope"></i> Email
+    </a>
+  </div>
+</section>
+
+
+    </main>
+
+    <footer class="rapido-footer" id="site-footer">
+      <div class="footer-glow" aria-hidden="true"></div>
+      <div class="footer-inner">
+        <div class="footer-brand-block">
+          <a class="footer-brand" href="index.html" aria-label="Rapido home"><span class="footer-brand-mark"><i class="fa-solid fa-bolt"></i></span><span>rapido<span class="footer-brand-dot">.</span></span></a>
+          <p class="footer-tagline">Your ride. Your city. Your way.</p>
+          <p class="footer-description">Making everyday travel simple, accessible and convenient.</p>
+          <div class="footer-app-badges">
+            <a href="https://play.google.com/store/apps/details?id=com.rapido.passenger" target="_blank" rel="noopener noreferrer" aria-label="Download Rapido for Android"><img src="./images/googleplay.svg" alt="Get it on Google Play" loading="lazy"></a>
+            <a href="https://apps.apple.com/in/app/rapido-bike-taxi-auto-cabs/id1198464606" target="_blank" rel="noopener noreferrer" aria-label="Download Rapido for iOS"><img src="./images/appstore.svg" alt="Download on the App Store" loading="lazy"></a>
+          </div>
+        </div>
+        <div class="footer-column"><h2>Explore</h2><a href="index.html">Home</a><a href="about.html">About us</a><a href="booking.html">Book a ride</a><a href="safety.html">Safety</a><a href="blog.html">Blog</a></div>
+        <div class="footer-column"><h2>Get involved</h2><a href="careers.html">Careers</a><a href="contact.html">Contact</a><a href="press.html">Press</a><a href="developer.html">Developer</a><a href="landing.html">Welcome</a></div>
+        <div class="footer-column footer-account"><h2>Your account</h2><a href="login.html">Sign in</a><a href="register.html">Create account</a><a href="customer-dashboard.html">Rider dashboard</a><a href="captain-dashboard.html">Captain dashboard</a><a href="dashboard.html">Dashboard hub</a></div>
+        <div class="footer-newsletter"><span class="footer-eyebrow">STAY IN THE LOOP</span><h2>Good rides. Great updates.</h2><p>Get occasional product news and ride updates in your inbox.</p>
+          <form class="newsletter" id="newsletter" novalidate><label class="sr-only" for="nlEmail">Email address</label><div class="nl-row"><input type="email" id="nlEmail" placeholder="Enter your email address" required><button type="submit" aria-label="Subscribe to updates"><i class="fa-solid fa-arrow-right"></i></button></div><p class="form-error" id="nlError" role="alert"></p></form>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 Rapido Ride Project. Developed by <a href="developer.html">YaswanthInfotech</a>.</p><p class="footer-disclaimer">affiliated with Rapido-@yaswanthinfotech.</p><a class="footer-back-top" href="#top" aria-label="Back to top">Back to top <i class="fa-solid fa-arrow-up"></i></a></div>
+    </footer>
+
+    <button class="to-top" id="toTop" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script src="js/routing.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pages.js"></script>
+    <script src="js/developer.js"></script>
+    <script src="js/home.js"></script>
+        <script src="js/lang.js" defer></script>
+    <script src="js/sounds.js" defer></script>
+    <script src="js/live.js" defer></script>
+    <script src="js/enhance.js" defer></script>
+    <script src="js/v14.js" defer></script>
+    <script src="js/showcase.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Safety features, emergency contacts and a pre-ride checklist.">
+    <link rel="icon" href="rapido.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <script>document.documentElement.classList.add('js');</script>
+    <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem('rc.theme'))||'dark';}catch(e){document.documentElement.dataset.theme='dark';}</script>
+    <link rel="stylesheet" href="style.css">
+    <title>Safety | Rapido</title>
+    <link rel="stylesheet" href="enhance.css">
+</head>
+
+<body data-page="safety">
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <nav class="space" aria-hidden="true"></nav>
+    <header class="navbar" id="header">
+        <a class="logo" href="index.html" aria-label="Rapido home">
+            <img src="./images/logo.svg" alt="Rapido logo">
+        </a>
+
+        <nav class="navigationmenu" id="menu" aria-label="Main">
+            <a href="index.html" data-link data-key="home">Home</a>
+            <a href="about.html" data-link data-key="about">About</a>
+            <a href="booking.html" data-link data-key="book">Book a ride</a>
+            <a href="safety.html" data-link data-key="safety" class="active">Safety</a>
+            <a href="blog.html" data-link data-key="blog">Blog</a>
+            <a href="admin-login.html" data-link data-key="dashboard">Dashboard</a>
+            <a href="careers.html" data-link data-key="careers">Careers</a>
+            <a href="landing.html" data-link data-key="landing">Welcome</a>
+            <a href="contact.html" data-link data-key="contact">Contact</a>
+            <a href="developer.html" data-link data-key="developer">Developer</a>
+            <a href="login.html" data-link data-key="login">Sign in</a>
+            <a class="btn btn2 nav-cta" href="#" data-open-download>Download app</a>
+        </nav>
+
+        <div class="download">
+            <button class="theme-btn" id="themeToggle" type="button" aria-label="Switch to light theme" title="Light theme"><i class="fa-solid fa-moon moon"></i><i class="fa-solid fa-sun sun"></i></button>
+            <div class="bell-wrap">
+                <button class="bell" id="bellBtn" type="button" aria-label="Notifications" aria-expanded="false" aria-controls="notifPanel">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="badge" id="bellCount" hidden>0</span>
+                </button>
+                <section class="notif-panel" id="notifPanel" aria-label="Notifications" hidden>
+                    <header class="notif-head">
+                        <strong>Notifications</strong>
+                        <div class="notif-actions">
+                            <button type="button" id="markAllRead">Mark all read</button>
+                            <button type="button" id="clearAll">Clear</button>
+                        </div>
+                    </header>
+                    <ul class="notif-list" id="notifList"></ul>
+                    <p class="notif-empty" id="notifEmpty">You're all caught up.</p>
+                </section>
+            </div>
+            <button class="ham" id="menuToggle" type="button" aria-label="Open menu" aria-controls="menu" aria-expanded="false">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-hero reveal">
+            <p class="eyebrow">Safety</p>
+            <h1>Your safety, on every ride</h1>
+            <p class="lead">Live trip sharing, emergency contacts and captain verification help you feel safe from pick-up to drop.</p>
+            <div class="hero-actions">
+                <button class="btn btn4" type="button" id="heroSos"><i class="fa-solid fa-triangle-exclamation"></i> Emergency help</button>
+                <a class="btn btn2" href="#contacts">Add emergency contacts</a>
+            </div>
+        </section>
+
+        <section class="safety-visual reveal">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1600&q=85" alt="Motorcycle rider wearing a helmet on a city road" loading="lazy">
+            <div class="safety-visual-copy"><span class="eyebrow">Safety first</span><h2>Small checks. Safer journeys.</h2><p>Wear a helmet, verify your ride details and share your trip with someone you trust.</p></div>
+        </section>
+        <section class="page-section">
+            <div class="tabs" role="tablist" aria-label="Safety audience">
+                <button class="tab" role="tab" id="st-overview" aria-selected="true" aria-controls="sp-overview" data-tab="overview" type="button">Overview</button>
+                <button class="tab" role="tab" id="st-customers" aria-selected="false" aria-controls="sp-customers" data-tab="customers" type="button">Customers</button>
+                <button class="tab" role="tab" id="st-captains" aria-selected="false" aria-controls="sp-captains" data-tab="captains" type="button">Captains</button>
+            </div>
+            <div class="tab-panel" id="sp-overview" data-panel="overview" role="tabpanel" aria-labelledby="st-overview">
+                <div class="card-grid">
+                    <article class="card reveal"><i class="fa-solid fa-location-crosshairs"></i><h3>Live trip tracking</h3><p>Follow your captain on the map from pick-up to drop.</p></article>
+                    <article class="card reveal"><i class="fa-solid fa-user-shield"></i><h3>Verified captains</h3><p>Captains share identity and vehicle details before they accept a ride.</p></article>
+                    <article class="card reveal"><i class="fa-solid fa-share-nodes"></i><h3>Share your trip</h3><p>Send your ride details to a trusted person with one tap.</p></article>
+                    <article class="card reveal"><i class="fa-solid fa-phone-volume"></i><h3>24x7 support</h3><p>Reach support during every ride from the app.</p></article>
+                </div>
+            </div>
+            <div class="tab-panel" id="sp-customers" data-panel="customers" role="tabpanel" aria-labelledby="st-customers" hidden>
+                <ul class="check-list">
+                    <li>Check the vehicle number and captain name before you board.</li>
+                    <li>Share your trip with someone you trust.</li>
+                    <li>Sit where you can hold on firmly, and wear a helmet.</li>
+                    <li>Confirm the drop location before the ride ends.</li>
+                </ul>
+            </div>
+            <div class="tab-panel" id="sp-captains" data-panel="captains" role="tabpanel" aria-labelledby="st-captains" hidden>
+                <ul class="check-list">
+                    <li>Keep your documents up to date.</li>
+                    <li>Confirm the rider's name before you start.</li>
+                    <li>Use the emergency button if you feel unsafe.</li>
+                    <li>Take breaks and avoid riding when you are tired.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="page-section two-col" id="contacts">
+            <div class="card-form reveal">
+                <h2>Emergency contacts</h2>
+                <p class="muted">Saved on this device. Up to 5 contacts.</p>
+                <form id="contactsForm" novalidate><fieldset class="form-fieldset"><legend>Emergency contacts</legend>
+                    <label>Name <input type="text" name="name" maxlength="40" required placeholder="Enter your full name"></label>
+                    <label>Mobile number <input type="tel" name="phone" placeholder="10-digit number" required></label>
+                    <p class="form-error" id="contactsError" role="alert"></p>
+                    <button class="btn btn1 wide magnetic" type="submit">Add contact</button>
+                </fieldset></form>
+                <ul class="list" id="contactsList"></ul>
+                <p class="muted" id="contactsEmpty">No emergency contacts yet.</p>
+            </div>
+            <div class="card-form reveal">
+                <h2>Pre-ride checklist</h2>
+                <p class="muted">Tick each item to build a safe-ride habit.</p>
+                <div class="progress"><div class="progress-bar" id="checkBar" style="width:0"></div></div>
+                <p class="muted" id="checkText">0 of 5 done</p>
+                <ul class="list" id="checklist">
+                    <li><label class="check-row"><input type="checkbox" data-check="helmet"> Helmet fits and is fastened</label></li>
+                    <li><label class="check-row"><input type="checkbox" data-check="plate"> Vehicle number matches the app</label></li>
+                    <li><label class="check-row"><input type="checkbox" data-check="name"> Captain name matches the app</label></li>
+                    <li><label class="check-row"><input type="checkbox" data-check="share"> Trip shared with a contact</label></li>
+                    <li><label class="check-row"><input type="checkbox" data-check="route"> Route checked on the map</label></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+
+    <dialog class="modal download-modal" id="downloadDialog" aria-labelledby="dlTitle">
+        <form method="dialog" class="modal-close-wrap"><button class="modal-x" aria-label="Close">&times;</button></form>
+        <h3 id="dlTitle">Get the Rapido app</h3>
+        <p class="muted">Use this website to explore ride booking and account features. Mobile app access is not available here yet.</p>
+        <div class="store-row">
+            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.rapido.passenger" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-play"></i><span><small>Get it on</small>Google Play</span></a>
+            <a class="store-btn" href="https://apps.apple.com/in/app/rapido-bike-taxi-auto-cabs/id1198464606" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-apple"></i><span><small>Download on the</small>App Store</span></a>
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn1" type="button" id="dlBook">Book a ride on the web</button>
+        </div>
+    </dialog>
+
+
+    <footer class="rapido-footer" id="site-footer">
+      <div class="footer-glow" aria-hidden="true"></div>
+      <div class="footer-inner">
+        <div class="footer-brand-block">
+          <a class="footer-brand" href="index.html" aria-label="Rapido home"><span class="footer-brand-mark"><i class="fa-solid fa-bolt"></i></span><span>rapido<span class="footer-brand-dot">.</span></span></a>
+          <p class="footer-tagline">Your ride. Your city. Your way.</p>
+          <p class="footer-description">Making everyday travel simple, accessible and convenient.</p>
+          <div class="footer-app-badges">
+            <a href="https://play.google.com/store/apps/details?id=com.rapido.passenger" target="_blank" rel="noopener noreferrer" aria-label="Download Rapido for Android"><img src="./images/googleplay.svg" alt="Get it on Google Play" loading="lazy"></a>
+            <a href="https://apps.apple.com/in/app/rapido-bike-taxi-auto-cabs/id1198464606" target="_blank" rel="noopener noreferrer" aria-label="Download Rapido for iOS"><img src="./images/appstore.svg" alt="Download on the App Store" loading="lazy"></a>
+          </div>
+        </div>
+        <div class="footer-column"><h2>Explore</h2><a href="index.html">Home</a><a href="about.html">About us</a><a href="booking.html">Book a ride</a><a href="safety.html">Safety</a><a href="blog.html">Blog</a></div>
+        <div class="footer-column"><h2>Get involved</h2><a href="careers.html">Careers</a><a href="contact.html">Contact</a><a href="press.html">Press</a><a href="developer.html">Developer</a><a href="landing.html">Welcome</a></div>
+        <div class="footer-column footer-account"><h2>Your account</h2><a href="login.html">Sign in</a><a href="register.html">Create account</a><a href="customer-dashboard.html">Rider dashboard</a><a href="captain-dashboard.html">Captain dashboard</a><a href="dashboard.html">Dashboard hub</a></div>
+        <div class="footer-newsletter"><span class="footer-eyebrow">STAY IN THE LOOP</span><h2>Good rides. Great updates.</h2><p>Get occasional product news and ride updates in your inbox.</p>
+          <form class="newsletter" id="newsletter" novalidate><label class="sr-only" for="nlEmail">Email address</label><div class="nl-row"><input type="email" id="nlEmail" placeholder="Enter your email address" required><button type="submit" aria-label="Subscribe to updates"><i class="fa-solid fa-arrow-right"></i></button></div><p class="form-error" id="nlError" role="alert"></p></form>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 Rapido Ride Project. Developed by <a href="developer.html">YaswanthInfotech</a>.</p><p class="footer-disclaimer">Project-@yaswanthinfotech2026</p><a class="footer-back-top" href="#top" aria-label="Back to top">Back to top <i class="fa-solid fa-arrow-up"></i></a></div>
+    </footer>
+
+    <button class="to-top" id="toTop" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+    <div class="toasts" id="toasts" role="region" aria-label="Alerts" aria-live="polite"></div>
+    <script src="js/pages.js"></script>
+        <script src="js/lang.js" defer></script>
+    <script src="js/sounds.js" defer></script>
+    <script src="js/live.js" defer></script>
+    <script src="js/enhance.js" defer></script>
+</body>
+
+</html>

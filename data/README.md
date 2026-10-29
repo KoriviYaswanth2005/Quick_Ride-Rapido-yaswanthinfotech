@@ -1,0 +1,1 @@
+The JSON database is created automatically on first server start. Back it up before upgrades. For production, replace this demo file store with PostgreSQL or another managed database. Do not commit credentials or live customer data.

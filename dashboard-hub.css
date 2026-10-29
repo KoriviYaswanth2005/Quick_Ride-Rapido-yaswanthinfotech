@@ -1,0 +1,80 @@
+.dashboard-hub-dialog {
+  width: min(920px, calc(100vw - 28px));
+  max-width: 920px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 30px;
+  background: linear-gradient(145deg, rgba(25,27,35,.98), rgba(11,12,17,.98));
+  color: #fff;
+  box-shadow: 0 35px 100px rgba(0,0,0,.65), 0 0 70px rgba(255,193,7,.08);
+  overflow: hidden;
+}
+.dashboard-hub-dialog::backdrop { background: rgba(2,4,9,.76); backdrop-filter: blur(12px); }
+.dashboard-hub-dialog[open] { animation: hubPop .42s cubic-bezier(.2,.8,.2,1); }
+@keyframes hubPop { from { opacity:0; transform: translateY(24px) scale(.96); } to { opacity:1; transform:none; } }
+.hub-shell { display:grid; grid-template-columns: .92fr 1.08fr; min-height:560px; }
+.hub-intro { padding:42px; position:relative; background: radial-gradient(circle at 20% 15%, rgba(255,202,40,.16), transparent 42%), radial-gradient(circle at 85% 80%, rgba(107,76,255,.16), transparent 40%); }
+.hub-intro::after { content:""; position:absolute; width:230px;height:230px;border-radius:50%;right:-90px;top:-90px;border:1px solid rgba(255,255,255,.08); box-shadow:inset 0 0 50px rgba(255,202,40,.05); }
+.hub-kicker { display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px; background:rgba(255,202,40,.11); color:#ffd43b; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.hub-intro h2 { font-size:38px; line-height:1.05; margin:22px 0 14px; }
+.hub-intro p { color:#aeb3c1; line-height:1.7; max-width:420px; }
+.hub-points { display:grid; gap:12px; margin-top:28px; }
+.hub-point { display:flex; gap:12px; align-items:center; color:#dce0e9; font-size:14px; }
+.hub-point i { width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:rgba(255,255,255,.07);color:#ffd43b; }
+.hub-form-panel { padding:30px; background:rgba(255,255,255,.025); }
+.hub-close { display:flex; justify-content:flex-end; }
+.hub-close button { width:38px;height:38px;border:0;border-radius:12px;background:rgba(255,255,255,.07);color:#fff;font-size:22px;cursor:pointer;transition:.2s; }
+.hub-close button:hover { background:rgba(255,255,255,.14); transform:rotate(6deg) scale(1.05); }
+.hub-form-panel h3 { margin:8px 0 6px; font-size:25px; }
+.hub-form-panel .muted { color:#9fa5b3; }
+.hub-roles { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:20px 0; }
+.hub-role { border:1px solid rgba(255,255,255,.09); background:rgba(255,255,255,.045); border-radius:18px; padding:16px 10px; color:#fff; cursor:pointer; transition:.25s; position:relative; overflow:hidden; }
+.hub-role::before { content:""; position:absolute; inset:-60%; background:radial-gradient(circle, rgba(255,255,255,.12), transparent 60%); opacity:0; transition:.25s; }
+.hub-role:hover::before,.hub-role.selected::before { opacity:1; }
+.hub-role:hover { transform:translateY(-4px); border-color:rgba(255,202,40,.45); }
+.hub-role.selected { border-color:#ffd02f; box-shadow:0 0 0 2px rgba(255,208,47,.13), 0 14px 35px rgba(255,208,47,.08); background:rgba(255,208,47,.08); }
+.hub-role i { font-size:23px; display:block; margin-bottom:9px; }
+.hub-role strong { display:block; font-size:14px; }
+.hub-role small { display:block; margin-top:4px; color:#a8adba; }
+.hub-field { display:block; margin-top:14px; }
+.hub-field > span { display:block; font-size:12px; font-weight:700; color:#c9ced8; margin-bottom:7px; }
+.hub-input { display:flex; align-items:center; gap:10px; border:1px solid rgba(255,255,255,.11); background:rgba(0,0,0,.18); border-radius:14px; padding:0 14px; transition:.2s; }
+.hub-input:focus-within { border-color:#ffd02f; box-shadow:0 0 0 3px rgba(255,208,47,.1); }
+.hub-input i { color:#8d94a4; }
+.hub-input input { width:100%; border:0; outline:0; background:transparent; color:#fff; padding:14px 0; font:inherit; }
+.hub-error { min-height:22px; color:#ff7f8d; font-size:12px; margin:8px 0 0; }
+.dashboard-signed-badge { display:inline-flex; padding:5px 9px; border-radius:999px; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; margin-left:6px; }
+.dashboard-signed-badge.yellow { background:rgba(255,208,47,.13); color:#ffd02f; }
+.dashboard-signed-badge.blue { background:rgba(67,154,255,.13); color:#73b4ff; }
+.dashboard-signed-badge.purple { background:rgba(167,108,255,.14); color:#c19aff; }
+.hub-hint { display:flex; gap:8px; align-items:center; color:#9097a6; font-size:11px; margin:4px 0 16px; }
+.hub-actions { display:flex; gap:10px; margin-top:10px; }
+.hub-actions button { flex:1; }
+.hub-demo { border:1px dashed rgba(255,255,255,.12); background:rgba(255,255,255,.025); color:#9299a8; border-radius:12px; padding:10px 12px; font-size:11px; cursor:pointer; }
+.hub-demo:hover { border-color:rgba(255,208,47,.35); color:#ddd; }
+.hub-submit { border:0; min-height:50px; border-radius:14px; background:linear-gradient(135deg,#ffd52f,#ffb800); color:#111; font-weight:800; cursor:pointer; box-shadow:0 12px 28px rgba(255,193,7,.2); transition:.22s; }
+.hub-submit:hover { transform:translateY(-2px); box-shadow:0 16px 35px rgba(255,193,7,.3); }
+.hub-submit:disabled { opacity:.65; cursor:wait; transform:none; }
+@media(max-width:760px){ .hub-shell{grid-template-columns:1fr}.hub-intro{display:none}.hub-form-panel{padding:24px}.dashboard-hub-dialog{border-radius:22px}.hub-roles{gap:7px}.hub-role{padding:13px 7px}.hub-role small{font-size:10px}.hub-form-panel h3{font-size:22px} }
+
+
+/* Secure Admin Login route */
+.hub-role-admin {
+  border-color: rgba(244, 194, 13, .45);
+  background: linear-gradient(145deg, rgba(255, 201, 46, .14), rgba(255,255,255,.86));
+}
+.hub-role-admin:hover, .hub-role-admin:focus-visible {
+  transform: translateY(-4px);
+  border-color: #f4c20d;
+  box-shadow: 0 16px 34px rgba(244,194,13,.22);
+}
+.hub-admin-route {
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  margin:14px 0 4px; padding:12px 14px; border-radius:16px;
+  color:#626875; background:rgba(255,255,255,.72);
+  border:1px solid rgba(17,24,39,.08); font-size:12px;
+}
+.hub-admin-route > i { color:#d8a800; }
+.hub-admin-route a { margin-left:auto; font-weight:700; color:#111827; text-decoration:none; }
+.hub-admin-route a:hover { text-decoration:underline; }
+@media (max-width: 700px) { .hub-admin-route a { margin-left:0; width:100%; } }

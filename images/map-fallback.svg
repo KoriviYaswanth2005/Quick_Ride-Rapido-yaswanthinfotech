@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<rect width="1200" height="800" fill="#eef2f3"/>
+<path d="M0 120 C220 70 360 190 520 130 S820 60 1200 130" fill="none" stroke="#d3dadd" stroke-width="34"/>
+<path d="M-50 610 C180 520 320 650 520 560 S900 450 1250 540" fill="none" stroke="#d3dadd" stroke-width="30"/>
+<path d="M130 -30 C200 180 130 330 230 480 S320 720 300 850" fill="none" stroke="#d3dadd" stroke-width="26"/>
+<path d="M830 -30 C760 150 850 290 790 430 S730 650 850 850" fill="none" stroke="#d3dadd" stroke-width="24"/>
+<path d="M420 -20 L470 820 M620 -20 L570 820 M1010 -20 L940 820" stroke="#ffffff" stroke-width="18"/>
+<path d="M0 360 L1200 300 M0 460 L1200 420 M0 720 L1200 680" stroke="#ffffff" stroke-width="16"/>
+<path d="M120 590 L300 500 L470 520 L600 410 L760 440 L900 330 L1080 350" fill="none" stroke="#f6c72d" stroke-width="7"/>
+<path d="M150 250 L310 290 L430 220 L590 280 L730 180 L910 220 L1100 140" fill="none" stroke="#ffffff" stroke-width="10"/>
+<ellipse cx="570" cy="545" rx="105" ry="75" fill="#b9e3c0" opacity=".9"/>
+<text x="510" y="555" font-family="Arial" font-size="24" fill="#3b7d4b">Cubbon Park</text>
+<ellipse cx="820" cy="590" rx="95" ry="58" fill="#b7dff2" opacity=".9"/>
+<text x="760" y="598" font-family="Arial" font-size="22" fill="#37728e">Ulsoor Lake</text>
+<text x="80" y="90" font-family="Arial" font-size="30" font-weight="700" fill="#68747b">Bengaluru</text>
+<text x="820" y="290" font-family="Arial" font-size="24" fill="#68747b">Indiranagar</text>
+<text x="370" y="390" font-family="Arial" font-size="24" fill="#68747b">MG Road</text>
+<text x="850" y="750" font-family="Arial" font-size="18" fill="#8a959a">Offline map preview • Click to place pickup / drop-off</text>
+</svg>

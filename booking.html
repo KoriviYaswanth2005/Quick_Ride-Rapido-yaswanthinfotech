@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book a bike, auto or cab with live fares and a map.">
+    <link rel="icon" href="rapido.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <script>document.documentElement.classList.add('js');</script>
+    <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem('rc.theme'))||'dark';}catch(e){document.documentElement.dataset.theme='dark';}</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="">
+    <link rel="stylesheet" href="style.css">
+    <title>Book a ride | Rapido</title>
+    <link rel="stylesheet" href="enhance.css">
+</head>
+
+<body data-page="booking">
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <nav class="space" aria-hidden="true"></nav>
+    <header class="navbar" id="header">
+        <a class="logo" href="index.html" aria-label="Rapido home">
+            <img src="./images/logo.svg" alt="Rapido logo">
+        </a>
+
+        <nav class="navigationmenu" id="menu" aria-label="Main">
+            <a href="index.html" data-link data-key="home">Home</a>
+            <a href="about.html" data-link data-key="about">About</a>
+            <a href="booking.html" data-link data-key="book">Book a ride</a>
+            <a href="safety.html" data-link data-key="safety">Safety</a>
+            <a href="blog.html" data-link data-key="blog">Blog</a>
+            <a href="admin-login.html" data-link data-key="dashboard">Dashboard</a>
+            <a href="careers.html" data-link data-key="careers">Careers</a>
+            <a href="landing.html" data-link data-key="landing">Welcome</a>
+            <a href="contact.html" data-link data-key="contact">Contact</a>
+            <a href="developer.html" data-link data-key="developer">Developer</a>
+            <a href="login.html" data-link data-key="login">Sign in</a>
+            <a class="btn btn2 nav-cta" href="#" data-open-download>Download app</a>
+        </nav>
+
+        <div class="download">
+            <button class="theme-btn" id="themeToggle" type="button" aria-label="Switch to light theme" title="Light theme"><i class="fa-solid fa-moon moon"></i><i class="fa-solid fa-sun sun"></i></button>
+            <div class="bell-wrap">
+                <button class="bell" id="bellBtn" type="button" aria-label="Notifications" aria-expanded="false" aria-controls="notifPanel">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="badge" id="bellCount" hidden>0</span>
+                </button>
+                <section class="notif-panel" id="notifPanel" aria-label="Notifications" hidden>
+                    <header class="notif-head">
+                        <strong>Notifications</strong>
+                        <div class="notif-actions">
+                            <button type="button" id="markAllRead">Mark all read</button>
+                            <button type="button" id="clearAll">Clear</button>
+                        </div>
+                    </header>
+                    <ul class="notif-list" id="notifList"></ul>
+                    <p class="notif-empty" id="notifEmpty">You're all caught up.</p>
+                </section>
+            </div>
+            <button class="ham" id="menuToggle" type="button" aria-label="Open menu" aria-controls="menu" aria-expanded="false">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-hero reveal" style="padding-bottom:20px">
+            <p class="eyebrow">Book a ride</p>
+            <h1>Where are you going?</h1>
+            <p class="lead">Pick a pickup and drop-off, compare bike, auto and cab, then confirm.</p>
+        </section>
+
+        <div class="book-page">
+            <section class="book-panel card-form reveal" aria-labelledby="bkTitle">
+                <h2 id="bkTitle">Trip details</h2>
+                <div class="suggest">
+                    <label>Pickup
+                        <input type="text" id="bkPickup" placeholder="Search any place in India or tap the map" autocomplete="off" aria-autocomplete="list" aria-controls="sugPickup">
+                    </label>
+                    <ul class="suggest-list" id="sugPickup" role="listbox" hidden></ul>
+                </div>
+                <div class="suggest">
+                    <label>Drop-off
+                        <input type="text" id="bkDrop" placeholder="Where to?" autocomplete="off" aria-autocomplete="list" aria-controls="sugDrop">
+                    </label>
+                    <ul class="suggest-list" id="sugDrop" role="listbox" hidden></ul>
+                </div>
+
+                <p class="muted" style="margin:6px 0 10px">Ride type</p>
+                <div class="fare-opts" role="radiogroup" aria-label="Ride type">
+                    <label class="fare-opt selected" data-type="bike">
+                        <input type="radio" name="bkType" value="bike" checked>
+                        <i class="fa-solid fa-motorcycle"></i><strong>Bike</strong><span class="price">–</span><small>–</small>
+                    </label>
+                    <label class="fare-opt" data-type="auto">
+                        <input type="radio" name="bkType" value="auto">
+                        <i class="fa-solid fa-taxi"></i><strong>Auto</strong><span class="price">–</span><small>–</small>
+                    </label>
+                    <label class="fare-opt" data-type="cab">
+                        <input type="radio" name="bkType" value="cab">
+                        <i class="fa-solid fa-car"></i><strong>Cab</strong><span class="price">–</span><small>–</small>
+                    </label>
+                </div>
+
+                <div class="promo-row">
+                    <label>Promo code
+                        <input type="text" id="promoInput" placeholder="Try WELCOME20" maxlength="12" autocomplete="off">
+                    </label>
+                    <button class="btn btn2" type="button" id="promoBtn">Apply</button>
+                </div>
+                <p class="promo-msg" id="promoMsg" aria-live="polite"></p>
+
+                <p class="muted" style="margin:6px 0 10px">When</p>
+                <div class="fare-opts when-opts" role="radiogroup" aria-label="When">
+                    <label class="fare-opt when-opt selected" data-when="now">
+                        <input type="radio" name="bkWhen" value="now" checked>
+                        <i class="fa-solid fa-bolt"></i><strong>Ride now</strong><small>Find a captain straight away</small>
+                    </label>
+                    <label class="fare-opt when-opt" data-when="later">
+                        <input type="radio" name="bkWhen" value="later">
+                        <i class="fa-regular fa-calendar"></i><strong>Schedule</strong><small>Pick a date and time</small>
+                    </label>
+                </div>
+                <label class="schedule-field" id="scheduleField" hidden>Date and time
+                    <input type="datetime-local" id="bkSchedule">
+                </label>
+                <p class="form-error" id="scheduleError" role="alert"></p>
+
+                <p class="muted" style="margin:6px 0 10px">Payment mode</p>
+                <div class="fare-opts pay-opts" role="radiogroup" aria-label="Payment mode">
+                    <label class="fare-opt pay-opt selected" data-pay="upi">
+                        <input type="radio" name="bkPay" value="upi" checked>
+                        <i class="fa-brands fa-google-pay"></i><strong>UPI</strong><small>Pay now in your UPI app</small>
+                    </label>
+                    <label class="fare-opt pay-opt" data-pay="cash">
+                        <input type="radio" name="bkPay" value="cash">
+                        <i class="fa-solid fa-money-bill-wave"></i><strong>Cash</strong><small>Pay your captain at drop-off</small>
+                    </label>
+                </div>
+
+                <section class="upi-prepay-card" id="upiPrepayCard" aria-labelledby="upiPrepayTitle">
+                    <div class="upi-prepay-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+                    <div class="upi-prepay-copy">
+                        <span class="upi-prepay-label">SECURE PAYMENT OPTION</span>
+                        <h3 id="upiPrepayTitle">Pay in advance with UPI</h3>
+                        <p>Review your estimated fare, then continue to your UPI app from the booking confirmation.</p>
+                        <div class="upi-id-row"><i class="fa-brands fa-google-pay" aria-hidden="true"></i><span>UPI ID</span><strong>koriviyaswanth4@oksbi</strong></div>
+                        <div class="upi-static-qr" style="margin-top:16px;text-align:center">
+                            <img src="assets/payments/upi-payment-qr.jpeg" alt="Scan this UPI QR code to pay" loading="lazy" style="display:block;width:min(100%,260px);height:auto;margin:12px auto;border-radius:12px;background:#fff">
+                            <small class="upi-disclaimer">Scan using a supported UPI app. Verify the recipient and enter the correct fare before confirming payment.</small>
+                        </div>
+                        <small class="upi-disclaimer">Payment is handled by your UPI app.</small>
+                    </div>
+                    <span class="upi-prepay-chip"><i class="fa-solid fa-check-circle" aria-hidden="true"></i> UPI only</span>
+                </section>
+                <div class="summary" id="bkSummary" aria-live="polite"></div>
+                <p class="form-error" id="bkError" role="alert"></p>
+                <button class="btn btn1 wide magnetic" type="button" id="bookBtn">Log in to book</button>
+
+                <div id="currentTrip" hidden style="margin-top:16px"></div>
+            </section>
+
+            <section class="book-panel reveal" aria-label="Map">
+                <div id="map"></div>
+                <p class="map-note" id="mapNote"></p>
+            </section>
+        </div>
+
+        <dialog class="modal" id="confirmDialog" aria-labelledby="confirmTitle">
+            <form method="dialog" class="modal-close-wrap"><button class="modal-x" aria-label="Close">&times;</button></form>
+            <h3 id="confirmTitle">Confirm your ride</h3>
+            <ul class="confirm-list" id="confirmList"></ul>
+            <div class="payment-method"><strong>Payment method</strong><p id="confirmPayLabel"></p><p class="muted" id="confirmPayDetail"></p><small id="confirmPayNote"></small></div>
+            <div class="modal-actions">
+                <button class="btn btn2" type="button" id="confirmCancel">Back</button>
+                <button class="btn btn1" type="button" id="confirmOk">Confirm ride</button>
+            </div>
+        </dialog>
+
+    </main>
+
+
+    <dialog class="modal download-modal" id="downloadDialog" aria-labelledby="dlTitle">
+        <form method="dialog" class="modal-close-wrap"><button class="modal-x" aria-label="Close">&times;</button></form>
+        <h3 id="dlTitle">Get the Rapido app</h3>
+        <p class="muted">Use this website to explore ride booking and account features. Mobile app access is not available here yet.</p>
+        <div class="store-row">
+            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.rapido.passenger" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-play"></i><span><small>Get it on</small>Google Play</span></a>
+            <a class="store-btn" href="https://apps.apple.com/in/app/rapido-bike-taxi-auto-cabs/id1198464606" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-apple"></i><span><small>Download on the</small>App Store</span></a>
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn1" type="button" id="dlBook">Book a ride on the web</button>
+        </div>
+    </dialog>
+
+
+    <footer class="rapido-footer" id="site-footer">
+      <div class="footer-glow" aria-hidden="true"></div>
+      <div class="footer-inner">
+        <div class="footer-brand-block">
+          <a class="footer-brand" href="index.html" aria-label="Rapido home"><span class="footer-brand-mark"><i class="fa-solid fa-bolt"></i></span><span>rapido<span class="footer-brand-dot">.</span></span></a>
+          <p class="footer-tagline">Your ride. Your city. Your way.</p>
+          <p class="footer-description">Making everyday travel simple, accessible and convenient.</p>
+          <div class="footer-app-badges">
+            <a href="https://play.google.com/store/apps/details?id=com.rapido.passenger" target="_blank" rel="noopener noreferrer" aria-label="Download Rapido for Android"><img src="./images/googleplay.svg" alt="Get it on Google Play" loading="lazy"></a>
+            <a href="https://apps.apple.com/in/app/rapido-bike-taxi-auto-cabs/id1198464606" target="_blank" rel="noopener noreferrer" aria-label="Download Rapido for iOS"><img src="./images/appstore.svg" alt="Download on the App Store" loading="lazy"></a>
+          </div>
+        </div>
+        <div class="footer-column"><h2>Explore</h2><a href="index.html">Home</a><a href="about.html">About us</a><a href="booking.html">Book a ride</a><a href="safety.html">Safety</a><a href="blog.html">Blog</a></div>
+        <div class="footer-column"><h2>Get involved</h2><a href="careers.html">Careers</a><a href="contact.html">Contact</a><a href="press.html">Press</a><a href="developer.html">Developer</a><a href="landing.html">Welcome</a></div>
+        <div class="footer-column footer-account"><h2>Your account</h2><a href="login.html">Sign in</a><a href="register.html">Create account</a><a href="customer-dashboard.html">Rider dashboard</a><a href="captain-dashboard.html">Captain dashboard</a><a href="dashboard.html">Dashboard hub</a></div>
+        <div class="footer-newsletter"><span class="footer-eyebrow">STAY IN THE LOOP</span><h2>Good rides. Great updates.</h2><p>Get occasional product news and ride updates in your inbox.</p>
+          <form class="newsletter" id="newsletter" novalidate><label class="sr-only" for="nlEmail">Email address</label><div class="nl-row"><input type="email" id="nlEmail" placeholder="Enter your email address" required><button type="submit" aria-label="Subscribe to updates"><i class="fa-solid fa-arrow-right"></i></button></div><p class="form-error" id="nlError" role="alert"></p></form>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 Rapido Ride Project. Developed by <a href="developer.html">YaswanthInfotech</a>.</p><p class="footer-disclaimer">Project-@yaswanthinfotech2026</p><a class="footer-back-top" href="#top" aria-label="Back to top">Back to top <i class="fa-solid fa-arrow-up"></i></a></div>
+    </footer>
+
+    <button class="to-top" id="toTop" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+    <div class="toasts" id="toasts" role="region" aria-label="Alerts" aria-live="polite"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
+    <script src="js/routing.js"></script>
+    <script src="js/pages.js"></script>
+    <script src="js/payments.js"></script>
+    <script src="js/features.js"></script>
+        <script src="js/lang.js" defer></script>
+    <script src="js/sounds.js" defer></script>
+    <script src="js/live.js" defer></script>
+    <script src="js/enhance.js" defer></script>
+    <script src="js/operations.js" defer></script>
+    <script src="js/ride-enhancements.js" defer></script>
+</body>
+
+</html>
