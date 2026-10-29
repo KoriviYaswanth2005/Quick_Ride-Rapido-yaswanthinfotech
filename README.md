@@ -1,4 +1,4 @@
-# Rapido Clone (plain HTML, CSS and JavaScript,Bootstrap,CDN's)
+# Quick-Ride Rapido (plain HTML, CSS and JavaScript,Bootstrap,CDN's)
 
 A bike-taxi website with no React, no framework and no build step. Open `index.html` in a browser, or serve the folder:
 
