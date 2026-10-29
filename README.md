@@ -7,7 +7,7 @@ A bike-taxi website with no React, no framework and no build step. Open `index.h
 - **Hero:** staggered entrance animation, working CTAs, magnetic buttons.
 - **About:** "Read more" toggle; floating shapes.
 - **Impact:** numbers count up when scrolled into view.
-- **Customers / Captains tabs:** animated panel switch, keyboard arrows.
+- **Customers / Captains tabs:** animated panel switch, keyboard arrows and dashboards for both the captains and the riders
 - **Booking:** validated form with live fare estimate, simulated captain assignment, a 4-step progress tracker, cancel, emergency alert, star rating and feedback, and a saved ride history (cancelled and completed rides).
 - **Reviews:** auto-playing carousel with dots, arrows, keyboard and swipe; post your own review.
 - **Captain sign-up:** validated form with a success animation.
@@ -15,7 +15,6 @@ A bike-taxi website with no React, no framework and no build step. Open `index.h
 - **Contact:** validated contact form and newsletter subscription.
 - **Notifications:** toasts for every action (auto-dismiss, pause on hover, close button), plus a notification centre with mark-all-read and clear. Ride progress, cancellations, reviews, sign-ups and form submissions all notify.
 - **Motion:** scroll reveals, ripples, hover lifts, animated stepper and progress bar, toast slide-in, bell shake. Everything is switched off for users who prefer reduced motion.
-
 
 ## Version 3 additions
 - **Theme:** dark-and-yellow by default, matching the design screenshots. Use the moon/sun button in the header to switch to the original light look. The choice is remembered on this device.
